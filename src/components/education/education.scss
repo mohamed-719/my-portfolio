@@ -1,0 +1,93 @@
+.education {
+    padding: 60px 20px;
+    background-color: #f0f0f5;
+    color: #2e2e2e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .content {
+        max-width: 900px;
+        background-color: #ffffff;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            font-family: "Roboto", sans-serif;
+            font-size: 50px;
+            color: #000000;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .education-list {
+            display: flex;
+            flex-direction: column; // Stack items in one column
+            gap: 20px; // Space between the items
+
+            .education-item {
+                background-color: #f7f9fc;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+                transition: box-shadow 0.3s ease;
+
+                &:hover {
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                }
+
+                h3 {
+                    font-size: 24px;
+                    color: #000000;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 16px;
+                    color: #636e72;
+                    margin-bottom: 8px;
+
+                    strong {
+                        color: #30336b;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            padding: 30px;
+        }
+
+        h2 {
+            font-size: 30px;
+        }
+
+        .education-list {
+            gap: 15px; // Adjust gap for smaller screens
+        }
+
+        .education-item {
+            text-align: center; // Center-align text for mobile
+        }
+    }
+
+    @media (max-width: 480px) {
+        h2 {
+            font-size: 26px;
+        }
+
+        .education-item {
+            padding: 15px; // Adjust padding for smaller screens
+        }
+    }
+}

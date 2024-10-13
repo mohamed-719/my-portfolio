@@ -1,7 +1,268 @@
+@import "../../global.scss";
+  @font-face {
+      font-family: 'Plain';
+      font-weight: normal;
+      font-style: normal;
+  }
+
+ :root {
+     --primary-color: #ffd500;
+     --white-color: #ffffff;
+     --dark-color: #010101;
+     --menu-bg-color: #212529;
+
+     --gray-color: #909090;
+     --p-color: #7d7a7a;
+
+     --base-font-family: "Plain", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+     --font-weight-bold: 600;
+     --font-weight-normal: 400;
+     --font-weight-light: 300;
+
+     --h1-font-size: 56px;
+     --h2-font-size: 48px;
+     --h3-font-size: 38px;
+     --h4-font-size: 34px;
+     --h5-font-size: 30px;
+     --h6-font-size: 24px;
+     --p-font-size: 18px;
+     --base-font-size: 16px;
+     --button-font-size: 20px;
+
+     --border-radius-large: 100%;
+     --border-radius-medium: 80px;
+     --border-radius-small: 40px;
+ }
+
+
+ body {
+     font-family: var(--base-font-family);
+ }
+
 .topbar {
     width: 100%;
     height: 70px;
-    background-color: #15023a;
+    background-color: white;
+    color: $mainColor;
     position: fixed;
     top: 0;
+    z-index: 3;
+    transition: all 1s ease;
+
+    .wrapper {
+        padding: 10px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+            display: flex;
+            align-items: center;
+
+            .logo {
+                font-size: 40px;
+                font-weight: 700;
+                text-decoration: none;
+                color: inherit;
+                margin-right: 40px;
+            }
+
+            .itemContainer {
+                display: flex;
+                align-items: center;
+                margin-left: 30px;
+
+                @include mobile {
+                    display: none;
+                }
+
+                .dev {
+                    font-size: 18px;
+                    margin-right: 5px;
+                }
+
+                span {
+                    font-size: 15px;
+                    font-weight: 500;
+                    margin: auto 20px;
+                }
+            }
+  .custom-btn {
+                            margin-right: 15px;
+      background: var(--dark-color);
+      border: none;
+      border-radius: var(--border-radius-medium);
+      color: var(--white-color);
+      letter-spacing: 0.2px;
+      padding: 10px 36px 10px 36px;
+      font-size: var(--button-font-size);
+      white-space: nowrap;
+        text-decoration: none;
+        transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+  }
+
+  .custom-btn:hover,
+  .custom-btn:focus {
+      color: var(--dark-color);
+      background: var(--primary-color);
+  }
+        .navbar .custom-btn {
+            background: var(--primary-color);
+            color: var(--dark-color);
+        }
+    
+        .contact-form #submit-button:hover,
+        .navbar .custom-btn:hover {
+            background: var(--dark-color);
+            color: var(--white-color);
+        }
+        }
+        .right {
+            .hamburger {
+                width: 32px;
+                height: 25px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+
+                span {
+                    width: 100%;
+                    height: 3px;
+                    background-color: $mainColor;
+                    transform-origin: left;
+                    transition: all 2s ease;
+                }
+            }
+        }
+    }
+
+    &.active {
+        background-color: $mainColor;
+        color: white;
+
+        .hamburger {
+            span {
+                &:first-child {
+                    background-color: white;
+                    transform: rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:last-child {
+                    background-color: white;
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
 }
+@media (max-width:1199px) {
+        .wrapper {
+            padding: 0 10px;
+            /* Less padding on mobile */
+    
+            .left {
+                .logo {
+                font-size: 30px !important;
+                }
+    
+                .itemContainer {
+                    .icon {
+                        display: none;
+                    }
+                    span {
+                        font-size: 12px;
+                        display: none;
+                    }
+                    .custom-btn {
+                        padding: 6px 12px;
+                        font-size: 12px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+    
+            .right {
+                .hamburger {
+                    span {
+                        height: 2px;
+                        /* Thinner lines for the hamburger */
+                        width: 20px;
+                        /* Adjust width for mobile */
+                    }
+                }
+            }
+        }
+}
+@media (max-width: 570px) {
+    .topbar {
+            height: 95px;
+        }
+}
+@media (max-width: 480px) {
+
+ .topbar {
+    height: 90px;
+ }
+    .wrapper {
+        padding: 0 10px;
+
+        .left {
+            .logo {
+                font-size: 20px !important;
+                /* Further decrease logo font size */
+                margin-right: 20px !important;
+                /* Less spacing on mobile */
+            }
+
+            .itemContainer {
+                flex-direction: column;
+                /* Stack items vertically */
+                align-items: flex-start;
+                /* Align to the left */
+                /* No margin between items */
+
+                span {
+                    font-size: 12px;
+                    /* Smaller font for mobile */
+                }    
+                .btn {
+
+                    .download {
+                        padding: 6px 12px !important;
+                        /* Compact button for mobile */
+                        font-size: 120px !important;
+                        /* Smaller button font size */
+                        margin-top: 10px !important;
+                        /* Add spacing between button and contact details */
+                    }
+                }       
+        }
+            }
+        }
+
+        .right {
+            .hamburger {
+                span {
+                    height: 2px;
+                    /* Thinner lines for the hamburger */
+                    width: 20px;
+                    /* Adjust width for mobile */
+                }
+            }
+        }
+    }
+
+        @media (max-width: 403px) {
+            .logo {
+                display: none;
+            }
+            
+        }
