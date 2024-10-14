@@ -10,7 +10,7 @@ export default function Education() {
                     <div className="education-item">
             <h3>Diploma Information Technology and Business(ITB)</h3>
             <p>Computer Science Ain Shams University, Egypt</p>
-            <p>2024 - 2026</p>
+            <p>2024</p>
           </div>
           <div className="education-item">
             <h3>Faculty of  Business Administration</h3>
